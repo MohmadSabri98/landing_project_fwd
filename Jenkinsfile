@@ -25,6 +25,20 @@ pipeline {
                 }
              }
         }
+        
+        
+        
+         stage('cd') {
+             steps {
+                   
+                       sh "docker run -d -p 80:80 mohmadsabri/myapp:$BUILD_NUMBER"
+                       
+                  
+                
+             }
+        }
+        
+        
 
 
     }
