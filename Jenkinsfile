@@ -1,4 +1,3 @@
-
 pipeline {
     agent {label 'ec2'}
 
@@ -36,10 +35,7 @@ pipeline {
                   
                 
              }
-        }
-        
-        
-                post{
+                  post{
                 success{
                 slackSend channel: 'jenkins', message: 'app deploy successfully'
                 }
@@ -48,7 +44,11 @@ pipeline {
                         
                         }
                     
-            }
+                     }
+        }
+        
+        
+           
 
     }
 }
