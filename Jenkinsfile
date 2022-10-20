@@ -13,13 +13,13 @@ pipeline {
         }
          stage('Building our image'){
             steps {
-                sh "docker build . -t mohmadss/myapp:22" 
+                sh "docker build . -t mohmadsabri/myapp:$BUILD_NUMBER" 
             }
         }
          stage('Push image') {
              steps {
                 withDockerRegistry([ credentialsId: "dohucred", url: "" ]) {
-                    sh "docker push mohmadss/myapp:22"
+                    sh "docker push mohmadsabri/myapp:$BUILD_NUMBER"
                 }
              }
         }
