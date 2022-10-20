@@ -31,7 +31,7 @@ pipeline {
          stage('cd') {
              steps {
                    
-                       sh "docker run -d -p 80:80 mohmadsabri/myapp:$BUILD_NUMBER"
+                       sh "docker run -d -p 80:3000 mohmadsabri/myapp:$BUILD_NUMBER"
                        
                   
                 
