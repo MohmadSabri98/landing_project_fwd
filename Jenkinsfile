@@ -18,7 +18,7 @@ pipeline {
         }
          stage('Push image') {
              steps {
-                withDockerRegistry([ credentialsId: "dohucred", url: "" ]) {
+                   withCredentials([usernamePassword(credentialsId: 'dohucred', usernameVariable: 'USERNAME', passwordVariable: 'PASS')])  {
                     sh "docker push mohmadsabri/myapp:$BUILD_NUMBER"
                 }
              }
