@@ -39,7 +39,16 @@ pipeline {
         }
         
         
-
+                post{
+                success{
+                slackSend channel: 'jenkins', message: 'app deploy successfully'
+                }
+                        failure { 
+                        slackSend channel: 'jenkins', message: 'build not successfully'
+                        
+                        }
+                    
+            }
 
     }
 }
