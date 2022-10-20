@@ -19,6 +19,8 @@ pipeline {
          stage('Push image') {
              steps {
                    withCredentials([usernamePassword(credentialsId: 'dohucred', usernameVariable: 'USERNAME', passwordVariable: 'PASS')])  {
+                       sh 'echo $PASS | docker login -u $USERNAME --password-stdin'
+                       
                     sh "docker push mohmadsabri/myapp:$BUILD_NUMBER"
                 }
              }
